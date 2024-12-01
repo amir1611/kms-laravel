@@ -59,23 +59,21 @@
                             </div>
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <div class="form-check">
-
+                                    <div class="form-check" style="display: inline-block; margin-right: 20px;">
                                         <!-- Remember Me -->
-                                        <input class="form-check-input" style=" margin-top: 10px; " type="checkbox"
+                                        <input class="form-check-input" style="margin-top: 10px;" type="checkbox"
                                             name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                         <label class="form-check-label" for="remember">
                                             {{ __('Remember Me') }}
                                         </label>
-
-                                        <!--Route to password.request-->
-                                        @if (Route::has('password.request'))
-                                            <a class="btn btn-link ml-5" href="{{ route('password.request') }}"
-                                                style="  margin-right: 0; padding-left: 114px; ">
-                                                {{ __('Forgot Your Password?') }}
-                                            </a>
-                                        @endif
                                     </div>
+
+                                    <!--Route to password.request-->
+                                    @if (Route::has('password.request'))
+                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                            {{ __('Forgot Your Password?') }}
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
 

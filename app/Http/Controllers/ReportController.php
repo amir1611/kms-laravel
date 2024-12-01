@@ -355,37 +355,7 @@ class ReportController extends Controller
             ->select(DB::raw('DATE_FORMAT(reports.report_month, "%Y-%m") as report_month'), 'report_monthly_revenue')
             ->get();
 
-            // $formattedData = $report->map(function ($entry) {
-            //     $entry->report_month = Carbon::parse($entry->report_month)->format('F'); // 'F' means full month name
-            //     return $entry;
-            // });
 
-     
-
-
-
-            // $reports = Report::join('kiosks', 'kiosks.id', '=', 'reports.kiosk_id')
-            //     ->where('kiosks.user_id', $userId)
-            //     ->select('reports.*')
-            //     ->get();
-
-           // $aggregatedData = [];
-
-            // foreach ($reports as $report) {
-            //     $kioskId = $report->kiosk_id;
-            //     $month = $report->report_month;
-            //     $revenue = $report->report_monthly_revenue;
-
-            //     if (!isset($aggregatedData[$kioskId])) {
-            //         $aggregatedData[$kioskId] = [];
-            //     }
-
-            //     if (!isset($aggregatedData[$kioskId][$month])) {
-            //         $aggregatedData[$kioskId][$month] = 0;
-            //     }
-
-            //     $aggregatedData[$kioskId][$month] += $revenue;
-            // }
 
             $revenues = $report;
         } else if ($userRole == 'pupuk-admin') {
