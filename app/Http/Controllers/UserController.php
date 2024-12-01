@@ -94,17 +94,37 @@ class UserController extends Controller
      */
     public function storeStaff(Request $request)
     {
-        // Validate the request
-        $request->merge([
-            'password' => Hash::make('1234'),
-            'role' => 3,
-            'staff_id' => 'stf' . rand(100, 999),
+        \Log::info('Role received: ' . $request->role);
+        
+        $defaultPassword = Hash::make('1234');
+        
+        $staffId = null;
+        $role = $request->role === 'pupuk-admin' ? 1 : 0;
+        
+        \Log::info('Role after conversion: ' . $role);
+
+        if ($request->role === 'pupuk-admin') {
+            $lastStaff = User::where('staff_id', 'LIKE', 'pupukAdmin%')
+                ->orderBy('staff_id', 'desc')
+                ->first();
+                
+            $staffId = $lastStaff 
+                ? 'pupukAdmin' . str_pad(intval(substr($lastStaff->staff_id, 9)) + 1, 3, '0', STR_PAD_LEFT)
+                : 'pupukAdmin001';
+        }
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $defaultPassword,
+            'ic' => $request->ic,
+            'gender' => $request->gender,
+            'contact' => $request->contact,
+            'role' => $role,
+            'staff_id' => $staffId,
+            'email_verified_at' => now()
         ]);
 
-
-        // Create a new staff user
-        $user = User::create($request->all());
-
-        return redirect()->back()->with('success', 'Staff registered successfully.');
+        return redirect()->back()->with('success', 'User registered successfully.');
     }
 }

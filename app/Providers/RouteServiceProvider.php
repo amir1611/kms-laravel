@@ -20,9 +20,7 @@ class RouteServiceProvider extends ServiceProvider
 	public const HOME = '/';
 	public const USER = '/user/profile';
 	public const PUPUKADMIN = '/pupuk-admin';
-	public const ADMIN = '/admin';
-	public const FKTECHNICAL = '/fk-technical';
-	public const FKBURSARY = '/fk-bursary';
+
 	/**
 	 * Define your route model bindings, pattern filters, and other route configuration.
 	 */

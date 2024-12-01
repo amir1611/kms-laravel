@@ -107,6 +107,24 @@
                 </div>
             </div>
 
+            <div class="row mb-3">
+                <label for="role" class="col-md-4 col-form-label text-md-end">{{ __('Role Type') }}</label>
+
+                <div class="col-md-6">
+                    <select id="role" class="form-select @error('role') is-invalid @enderror form-control"
+                        name="role" required>
+                        <option value="" hidden selected></option>
+                        <option value="pupuk-admin">Pupuk Admin</option>
+                        <option value="user">Kiosk Participant</option>
+                    </select>
+
+                    @error('role')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
 
             <div class="row mb-0" style=" margin-left: 430px; padding-top: 20px; padding-bottom: 43px;">
                 <div class="col-md-6 offset-md-4">
