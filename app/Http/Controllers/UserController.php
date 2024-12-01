@@ -86,7 +86,7 @@ class UserController extends Controller
     public function registerStaff()
     {
         // Return back to the Admin Profile page
-        return view('manageProfile.adminprofile');
+        return view('manageProfile.registeruser');
     }
 
     /**

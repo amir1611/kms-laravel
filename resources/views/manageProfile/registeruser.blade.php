@@ -2,7 +2,7 @@
 
 @section('main-content')
     <!--ADMIN PROFILE -->
-    <h1 style="border-radius: 30px;margin-left: 667px;margin-right: 708px;"> REGISTER STAFF</h1>
+    <h1 class="text-center mb-4 mt-3">REGISTER USER</h1>
     <div class="container2" style="background-color: white;border-radius: 30px;margin-left: 100px;margin-right: 100px;">
 
 

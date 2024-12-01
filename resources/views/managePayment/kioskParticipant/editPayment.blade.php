@@ -51,43 +51,42 @@
 
             <div class="table-responsive">
                 <table class="table mt-3 profile-table">
-                <tr>
+                    <tr>
 
-                <tr>
+                    <tr>
                         <th class="profile-label">Kiosk ID</th>
                         <td>
-                            <input class="form-control profile-input" type="number" name="kiosk_id"
-                                id="kiosk_id"
+                            <input class="form-control profile-input" type="number" name="kiosk_id" id="kiosk_id"
                                 value="{{ old('kiosk_id', $payment->kiosk_id) }}">
                         </td>
                     </tr>
-                
-        <th class="profile-label">Payment Type</th>
-            <td>
-             <select class="form-control profile-input" name="payment_type" id="payment_type">
-                    <option value="KIOSK RENT" {{ old('payment_type', $payment->payment_type) === 'KIOSK RENT' ? 'selected' : '' }}>
-                     Kiosk Rent
-                    </option>
-                    <option value="INVENTORY RENT" {{ old('payment_type', $payment->payment_type) === 'INVENTORY RENT' ? 'selected' : '' }}>
-                     Inventory Rent
-                    </option>
-                </select>
-            </td>
-        </tr>
+
+                    <th class="profile-label">Payment Type</th>
+                    <td>
+                        <select class="form-control profile-input" name="payment_type" id="payment_type">
+                            <option value="KIOSK RENT"
+                                {{ old('payment_type', $payment->payment_type) === 'KIOSK RENT' ? 'selected' : '' }}>
+                                Kiosk Rent
+                            </option>
+                            <option value="INVENTORY RENT"
+                                {{ old('payment_type', $payment->payment_type) === 'INVENTORY RENT' ? 'selected' : '' }}>
+                                Inventory Rent
+                            </option>
+                        </select>
+                    </td>
+                    </tr>
 
                     <tr>
                         <th class="profile-label">Payment Amount (RM)</th>
                         <td>
                             <input class="form-control profile-input" type="number" name="payment_amount"
-                                id="payment_amount"
-                                value="{{ old('payment_amount', $payment->payment_amount) }}">
+                                id="payment_amount" value="{{ old('payment_amount', $payment->payment_amount) }}">
                         </td>
                     </tr>
                     <tr>
                         <th class="profile-label">Payment Date</th>
                         <td>
-                            <input class="form-control profile-input" type="date" name="payment_date"
-                                id="payment_date"
+                            <input class="form-control profile-input" type="date" name="payment_date" id="payment_date"
                                 value="{{ old('payment_date', $payment->payment_date) }}">
                         </td>
                     </tr>
@@ -97,23 +96,23 @@
                 </table>
             </div>
             <div class="text-center mt-5">
-            @csrf
-            <button type="submit" id="editPaymentBTN" class="btn pl-3 pr-3 mb-4 bg-white text-dark" data-mdb-ripple-init><b>Update</b></button>
+                @csrf
+                <button type="submit" id="editPaymentBTN" class="btn pl-3 pr-3 mb-4 bg-white text-dark"
+                    data-mdb-ripple-init><b>Update</b></button>
 
-        </div>
+            </div>
             <br>
             <br>
         </form>
     </div>
 
     <script>
-    // Handle successful upload response
-    $(document).ready(function() {
-        $('#editPaymentBTN').click(function() {
-            // Submit the form
-            $(this).closest('form').submit();
+        // Handle successful upload response
+        $(document).ready(function() {
+            $('#editPaymentBTN').click(function() {
+                // Submit the form
+                $(this).closest('form').submit();
+            });
         });
-    });
-</script>
-
+    </script>
 @endsection

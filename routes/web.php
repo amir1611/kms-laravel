@@ -31,9 +31,8 @@ Route::prefix('pupuk-admin')->name('pupuk.')->group(function () {
         Route::get('/profile', [HomeController::class, 'indexPupukAdmin'])->name('home');
         Route::post('/profile', [HomeController::class, 'updatePassword'])->name('update-password-staff');
         Route::get('/', [HomeController::class, 'indexPupukAdmin'])->name('home');
-       
-                Route::get('/register-staff', [UserController::class, 'registerStaff'])->name('register-staff');
-                Route::post('/store-staff', [UserController::class, 'storeStaff'])->name('store-staff');
+        Route::get('/register-staff', [UserController::class, 'registerStaff'])->name('register-staff');
+        Route::post('/store-staff', [UserController::class, 'storeStaff'])->name('store-staff');
 
         //manageKiosk
         Route::get('/kiosk-application', [KioskController::class, 'viewKioskApplication'])->name('viewKioskApplication');
@@ -113,20 +112,3 @@ Route::prefix('user')->name('user.')->group(function () {
 
 
 
-
-
-
-
-//ALL ROUTES FOR FK BURSARY
-Route::prefix('fk-bursary')->name('bursary.')->group(function () {
-    Route::group(['middleware' => ['auth', 'verified', 'user-role:fk-bursary']], function () {
-
-        
-          //managePayment
-          Route::get('/viewPaymentList', [PaymentController::class, 'viewAllPayment'])->name('viewAllPayment');
-          Route::get('/view-payment/{id}', [PaymentController::class, 'viewPayment'])->name('viewPayment');
-          Route::get('/payment-approval/{id}', [PaymentController::class, 'paymentApproval'])->name('paymentApproval');
-          Route::get('/view-payment/{id}', [PaymentController::class, 'viewPayment'])->name('viewPayment');
-          Route::post('/process-payment/{id}', [PaymentController::class, 'processPayment'])->name('processPayment');
-    });
-});

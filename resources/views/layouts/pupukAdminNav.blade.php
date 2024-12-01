@@ -62,21 +62,28 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('pupuk.register-staff') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>{{ __('Manage Staff') }}</span></a>
+                    <span>{{ __('Manage User') }}</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('pupuk.viewKioskApplication') }}">
-                    <i class="fa fa-fw fa-users"></i>
-                    <span>{{ __('Kiosk Application') }}</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('pupuk.viewKioskParticipant') }}">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#manageKioskCollapse"
+                    aria-expanded="false" aria-controls="manageKioskCollapse">
                     <i class="fa fa-fw fa-store"></i>
-                    <span>{{ __('Kiosk Participant') }}</span>
+                    <span>{{ __('Manage Kiosk') }}</span>
                 </a>
+                <div id="manageKioskCollapse" class="collapse" aria-labelledby="headingTwo"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('pupuk.viewKioskApplication') }}">
+                            <i class="fa fa-fw fa-users"></i>
+                            <span>{{ __('Kiosk Application') }}</span>
+                        </a>
+                        <a class="collapse-item" href="{{ route('pupuk.viewKioskParticipant') }}">
+                            <i class="fa fa-fw fa-store"></i>
+                            <span>{{ __('Kiosk Participant') }}</span>
+                        </a>
+                    </div>
+                </div>
             </li>
 
             <li class="nav-item">

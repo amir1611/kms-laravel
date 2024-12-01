@@ -65,7 +65,7 @@
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item"
                                 href="{{ route('user.viewPaymentHistory', ['sort' => 'All']) }}">All</a></li>
-                                <li><a class="dropdown-item"
+                        <li><a class="dropdown-item"
                                 href="{{ route('user.viewPaymentHistory', ['sort' => 'New']) }}">New</a></li>
                         <li><a class="dropdown-item"
                                 href="{{ route('user.viewPaymentHistory', ['sort' => 'Pending']) }}">Pending</a></li>
@@ -76,12 +76,13 @@
                     </ul>
                     </ul>
 
-                    <a href="{{route('user.addPayment')}}"><button type="button" id="addPaymentBTN" class="btn pl-3 pr-3" style="margin-left: 15px" data-mdb-ripple-init><b>+</b></button></a>
+                    <a href="{{ route('user.addPayment') }}"><button type="button" id="addPaymentBTN" class="btn pl-3 pr-3"
+                            style="margin-left: 15px" data-mdb-ripple-init><b>+</b></button></a>
 
                 </div>
             </div>
 
-           
+
 
         </div>
 
@@ -109,22 +110,18 @@
                                 <p
                                     style="border-radius: 4px; border: 1px solid #000; background: rgba(0, 255, 195, 0.38); color:black;">
                                     {{ $payment->payment_status }}</p>
-
                             @elseif ($payment->payment_status == 'Approved')
                                 <p
                                     style="border-radius: 4px; border: 1px solid #000; background: rgba(106, 0, 255, 0.38); color:black;">
                                     {{ $payment->payment_status }}</p>
-
                             @elseif ($payment->payment_status == 'New')
                                 <p
                                     style="border-radius: 4px; border: 1px solid #000; background: rgba(255, 242, 0, 0.38); color:black;">
                                     {{ $payment->payment_status }}</p>
-
                             @elseif ($payment->payment_status == 'Rejected')
                                 <p
                                     style="border-radius: 4px; border: 1px solid #000; background: rgba(255, 0, 0, 0.38); color:black;">
                                     {{ $payment->payment_status }}</p>
-
                             @else
                                 <p class="text-warning">{{ $payment->payment_status }}</p>
                             @endif
@@ -132,7 +129,7 @@
                         <td>{{ $payment->payment_comment }}</td>
                         <td>
                             <div class="d-flex justify-content-center">
-                                <a href="/user/viewPaymentDetails/{{$payment->payment_id}}">
+                                <a href="/user/viewPaymentDetails/{{ $payment->payment_id }}">
                                     <i class="fas fa-eye text-dark"></i>
                                 </a>
                             </div>
