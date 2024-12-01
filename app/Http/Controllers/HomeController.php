@@ -54,10 +54,7 @@ class HomeController extends Controller
         return view('manageProfile.fkTechnicalprofile');
     }
 
-    public function indexFKBursary()
-    {
-        return view('manageProfile.fkbursaryprofile');
-    }
+
 
 
     public function updatePassword(Request $request)

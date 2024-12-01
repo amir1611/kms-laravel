@@ -41,6 +41,14 @@ Route::prefix('pupuk-admin')->name('pupuk.')->group(function () {
         Route::get('/pupuk/deleteKiosk/{id}', [KioskController::class, 'deleteKiosk'])->name('deleteKiosk');
         Route::get('/pupuk/updateApplicationStatus/{id}', [KioskController::class, 'updateApplicationStatus'])->name('updateApplicationStatus');
    
+                  //managePayment
+                  Route::get('/viewPaymentList', [PaymentController::class, 'viewAllPayment'])->name('viewAllPayment');
+                  Route::get('/view-payment/{id}', [PaymentController::class, 'viewPayment'])->name('viewPayment');
+                  Route::get('/payment-approval/{id}', [PaymentController::class, 'paymentApproval'])->name('paymentApproval');
+                  Route::get('/view-payment/{id}', [PaymentController::class, 'viewPayment'])->name('viewPayment');
+                  Route::post('/process-payment/{id}', [PaymentController::class, 'processPayment'])->name('processPayment');
+
+
                 //manageReport
                 Route::get('/viewMonthlyReportList', [ReportController::class, 'viewAllReport'])->name('reportList');
                 Route::get('/uploadMonthlyReport', [ReportController::class, 'showKioskListById'])->name('uploadReport');
@@ -133,11 +141,7 @@ Route::prefix('fk-technical')->name('technical.')->group(function () {
 Route::prefix('fk-bursary')->name('bursary.')->group(function () {
     Route::group(['middleware' => ['auth', 'verified', 'user-role:fk-bursary']], function () {
 
-        //manageAccount
-        Route::get('/', [HomeController::class, 'indexFKBursary'])->name('home');
-        Route::get('/register-staff', [UserController::class, 'registerStaff'])->name('register-staff');
-        Route::post('/store-staff', [UserController::class, 'storeStaff'])->name('store-staff');
-
+        
           //managePayment
           Route::get('/viewPaymentList', [PaymentController::class, 'viewAllPayment'])->name('viewAllPayment');
           Route::get('/view-payment/{id}', [PaymentController::class, 'viewPayment'])->name('viewPayment');

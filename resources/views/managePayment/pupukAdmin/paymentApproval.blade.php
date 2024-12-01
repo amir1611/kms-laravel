@@ -1,4 +1,4 @@
-@extends('layouts.fkBursaryNav')
+@extends('layouts.pupukAdminNav')
 
 @section('main-content')
 <div class="container2" style="background-color: white;border-radius: 30px;margin-left: 100px;margin-right: 100px;">
@@ -151,7 +151,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Add Comments(Optional)</h4>
                         <form method="post"
-                            action="{{ route('bursary.processPayment', ['id' => $payment->payment_id]) }}">
+                            action="{{ route('pupuk.processPayment', ['id' => $payment->payment_id]) }}">
                             @csrf
                             <div class="mb-3">
                                 <label for="payment_comment" class="form-label">Comments:</label>

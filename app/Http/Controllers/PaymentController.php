@@ -266,7 +266,7 @@ class PaymentController extends Controller
         $kioskPayments = $query->paginate(10);
 
         // Pass the data to the view along with the current sorting option and search query
-        return view('managePayment.fkBursary.viewPaymentList', [
+        return view('managePayment.pupukAdmin.viewPaymentList', [
             'kioskPayments' => $kioskPayments,
             'currentSort' => $sort,
             'currentSearch' => $searchQuery,
@@ -293,25 +293,8 @@ class PaymentController extends Controller
             'payment_comment' => $request->input('payment_comment'),
         ]);
 
-        return redirect()->route('bursary.viewAllPayment', ['id' => $id])->with('success', 'Payment processed successfully.');
+        return redirect()->route('pupuk.viewAllPayment', ['id' => $id])->with('success', 'Payment processed successfully.');
     }
-
-
-
-
-
-
-//    // View payment details
-//     public function viewPayment($id)
-//     {
-//         // Fetch payment details
-//         $payment = Payments::findOrFail($id);
-//         $user = $payment->user;
-
-//         return view('managePayment.fkBursary.paymentApproval', ['payment' => $payment, 'user' => $user]);
-//     }
-
-
 
 
 
@@ -339,7 +322,7 @@ class PaymentController extends Controller
                         'payments.payment_comment',
                 );
 
-        return view('managePayment.fkBursary.paymentApproval', ['payment' => $payment, 'user' => $user]);
+        return view('managePayment.pupukAdmin.paymentApproval', ['payment' => $payment, 'user' => $user]);
     }
 
 

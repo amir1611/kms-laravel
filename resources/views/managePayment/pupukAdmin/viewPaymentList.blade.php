@@ -26,7 +26,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-@extends('layouts.fkBursaryNav')
+@extends('layouts.pupukAdminNav')
 
 @section('main-content')
     @php
@@ -45,7 +45,7 @@
             <h4 style="margin-left: 20px"><b>Payment List</b></h4>
 
             <div class="d-flex">
-                <form class="d-flex input-group w-auto mr-4" method="get" action="{{ route('bursary.viewAllPayment') }}">
+                <form class="d-flex input-group w-auto mr-4" method="get" action="{{ route('pupuk.viewAllPayment') }}">
 
                     <span class="input-group-text searchLogo bg-light" id="search-addon">
                         <i class="fas fa-search"></i>
@@ -64,13 +64,13 @@
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item"
-                                href="{{ route('bursary.viewAllPayment', ['sort' => 'All']) }}">All</a></li>
+                                href="{{ route('pupuk.viewAllPayment', ['sort' => 'All']) }}">All</a></li>
                         <li><a class="dropdown-item"
-                                href="{{ route('bursary.viewAllPayment', ['sort' => 'Pending']) }}">Pending</a></li>
+                                href="{{ route('pupuk.viewAllPayment', ['sort' => 'Pending']) }}">Pending</a></li>
                         <li><a class="dropdown-item"
-                                href="{{ route('bursary.viewAllPayment', ['sort' => 'Approved']) }}">Approved</a></li>
+                                href="{{ route('pupuk.viewAllPayment', ['sort' => 'Approved']) }}">Approved</a></li>
                         <li><a class="dropdown-item"
-                                href="{{ route('bursary.viewAllPayment', ['sort' => 'Rejected']) }}">Rejected</a></li>
+                                href="{{ route('pupuk.viewAllPayment', ['sort' => 'Rejected']) }}">Rejected</a></li>
                     </ul>
                 </div>
             </div>
@@ -129,7 +129,7 @@
                         <td>
                             <div class="d-flex justify-content-center">
                                     <a
-                                        href="{{ route('bursary.paymentApproval', ['id' => $payment->payment_id]) }}">
+                                        href="{{ route('pupuk.paymentApproval', ['id' => $payment->payment_id]) }}">
                                         <i class="fas fa-eye text-dark"></i>
                                     </a>
 
