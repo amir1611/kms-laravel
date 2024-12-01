@@ -98,20 +98,10 @@ class UserController extends Controller
         
         $defaultPassword = Hash::make('1234');
         
-        $staffId = null;
+        $staffId = $this->generateUniqueStaffId();
         $role = $request->role === 'pupuk-admin' ? 1 : 0;
         
         \Log::info('Role after conversion: ' . $role);
-
-        if ($request->role === 'pupuk-admin') {
-            $lastStaff = User::where('staff_id', 'LIKE', 'pupukAdmin%')
-                ->orderBy('staff_id', 'desc')
-                ->first();
-                
-            $staffId = $lastStaff 
-                ? 'pupukAdmin' . str_pad(intval(substr($lastStaff->staff_id, 9)) + 1, 3, '0', STR_PAD_LEFT)
-                : 'pupukAdmin001';
-        }
 
         $user = User::create([
             'name' => $request->name,
@@ -126,6 +116,24 @@ class UserController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'User registered successfully.');
+    }
+
+    private function generateUniqueStaffId()
+    {
+        $prefix = 'pupukAdmin';
+        $existingIds = User::where('staff_id', 'LIKE', $prefix . '%')->pluck('staff_id')->toArray();
+
+        // Start with the first ID
+        $newIdNumber = 1;
+
+        // Generate a new ID until a unique one is found
+        while (true) {
+            $newStaffId = $prefix . str_pad($newIdNumber, 3, '0', STR_PAD_LEFT);
+            if (!in_array($newStaffId, $existingIds)) {
+                return $newStaffId; // Return the unique ID
+            }
+            $newIdNumber++;
+        }
     }
 
     public function viewUsers()

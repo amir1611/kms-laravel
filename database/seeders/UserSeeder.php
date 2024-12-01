@@ -22,7 +22,6 @@ class UserSeeder extends Seeder
 				'ic' => '111122223333',
 				'name' => 'Amira Binti Rosli',
 				'gender' => 'Female',
-				'staff_id' => 'pupukAdmin01',
 				'email' => 'pupukadmin@gmail.com',
 				'contact' => '0387298768',
 				'email_verified_at' => '2023-06-03 09:16:17',
