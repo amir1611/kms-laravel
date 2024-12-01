@@ -60,9 +60,24 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('pupuk.register-staff') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>{{ __('Manage User') }}</span></a>
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#manageUserCollapse"
+                    aria-expanded="false" aria-controls="manageUserCollapse">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>{{ __('Manage User') }}</span>
+                </a>
+                <div id="manageUserCollapse" class="collapse" aria-labelledby="headingTwo"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('pupuk.register-staff') }}">
+                            <i class="fas fa-fw fa-user-plus"></i>
+                            <span>{{ __('Register User') }}</span>
+                        </a>
+                        <a class="collapse-item" href="{{ route('pupuk.view-users') }}">
+                            <i class="fas fa-fw fa-list"></i>
+                            <span>{{ __('View Users') }}</span>
+                        </a>
+                    </div>
+                </div>
             </li>
 
             <li class="nav-item">

@@ -127,4 +127,10 @@ class UserController extends Controller
 
         return redirect()->back()->with('success', 'User registered successfully.');
     }
+
+    public function viewUsers()
+    {
+        $users = User::all();
+        return view('manageProfile.viewusers', compact('users'));
+    }
 }

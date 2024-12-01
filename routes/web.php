@@ -61,6 +61,7 @@ Route::prefix('pupuk-admin')->name('pupuk.')->group(function () {
                 Route::get('/filter/{filterData}', [ReportController::class, 'filterTable'])->name('filterSec');
                 Route::get('/search', [ReportController::class, 'searchReport'])->name('searchReport');
         
+        Route::get('/view-users', [UserController::class, 'viewUsers'])->name('view-users');
     });
 });
 

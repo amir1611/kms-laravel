@@ -53,14 +53,12 @@ class User extends Authenticatable implements MustVerifyEmail
     /**SET THE ROLE
      * KIOSK PARTICIPANT=0
      * PUPUK ADMIN=1
-     * ADMIN=2
-	 * FK-TECHNICAL=3
-	 * FK-BURSART = 4
+ 
      */
 	protected function role(): Attribute
 	{
 		return new Attribute(
-			get: fn ($value) =>  ["user", "pupuk-admin", "admin", "fk-technical", "fk-bursary"][$value],
+			get: fn ($value) =>  ["user", "pupuk-admin"][$value],
 		);
 	}
 
