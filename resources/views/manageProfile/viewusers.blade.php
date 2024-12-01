@@ -7,29 +7,29 @@
         <div class="card mb-4">
             <div class="card-body">
                 <table id="usersTable" class="table table-striped table-bordered">
-                    <thead class="bg-primary text-white">
+                    <thead class="bg-primary text-white text-center">
                         <tr>
+                            <th>ID</th>
                             <th>Staff ID</th>
                             <th>IC Number</th>
                             <th>Name</th>
-                            <th>Gender</th>
-                            <th>Email</th>
-                            <th>Contact</th>
-        
-                            <th>Created At</th>
+                            <th class="text-center">Gender</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center">Contact</th>
+                            <th class="text-center">Created At</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($users as $user)
                             <tr>
-                                <td>{{ $user->staff_id ?? 'N/A' }}</td>
+                                <td class="text-center">{{ $user->id }}</td>
+                                <td class="text-center">{{ $user->staff_id ?? 'N/A' }}</td>
                                 <td>{{ $user->ic }}</td>
                                 <td>{{ $user->name }}</td>
-                                <td>{{ ucfirst($user->gender) }}</td>
+                                <td class="text-center">{{ ucfirst($user->gender) }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->contact }}</td>
-                         
+                                <td class="text-center">{{ $user->contact }}</td>
                                 <td>{{ $user->created_at->format('d/m/Y') }}</td>
                                 <td>
                                     <div class="btn-group" role="group">
