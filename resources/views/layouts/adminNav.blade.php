@@ -46,29 +46,7 @@
                 <span>{{ __('Register Staff') }}</span></a>
         </li>
 
-          <!-- Nav Item - All Complaints -->
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.viewUpdateAllComplaint') }}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>{{ __('View Complaint') }}</span></a>
-        </li>
-
-        {{-- <!-- Nav Item - Profile -->
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-fw fa-user"></i>
-                <span>{{ __('Manage Staff') }}</span>
-            </a>
-        </li>
-
-
-         <!-- Nav Item - Profile -->
-         <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-fw fa-user"></i>
-                <span>{{ __('Manage User') }}</span>
-            </a>
-        </li> --}}
+    
 
 
         <li class="nav-item">

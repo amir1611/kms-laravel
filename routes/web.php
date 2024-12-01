@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\complaintController;
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
@@ -96,14 +96,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::get('/search', [ReportController::class, 'searchReport'])->name('searchReport');
 
 
-        //manageComplaint
-        Route::get('/viewComplaint', [complaintController::class, 'viewComplaint'])->name('viewComplaint');
-        Route::get('/addComplaint', [complaintController::class, 'addComplaint'])->name('addComplaint');
-        Route::post('/createComplaint', [complaintController::class, 'createComplaint'])->name('submitCreatedComplaint');
-        Route::get('/edit-complaint/{id}', [ComplaintController::class, 'editComplaint'])->name('editComplaint');
-        Route::put('/update-complaint/{id}', [ComplaintController::class, 'updateComplaint'])->name('updateComplaint');
-        Route::delete('/delete-complaint/{id}', [ComplaintController::class, 'deleteComplaint'])->name('deleteComplaint');
-
+      
     });
 });
 
@@ -117,8 +110,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/register-staff', [UserController::class, 'registerStaff'])->name('register-staff');
         Route::post('/store-staff', [UserController::class, 'storeStaff'])->name('store-staff');
 
-        //manageComplaint
-        Route::get('/viewUpdateAllComplaint', [complaintController::class, 'viewUpdateAllComplaint'])->name('viewUpdateAllComplaint');
+       
     });
 });
 
@@ -132,10 +124,7 @@ Route::prefix('fk-technical')->name('technical.')->group(function () {
         Route::get('/register-staff', [UserController::class, 'registerStaff'])->name('register-staff');
         Route::post('/store-staff', [UserController::class, 'storeStaff'])->name('store-staff');
 
-        //manageComplaint
-        Route::get('/viewAllComplaint', [complaintController::class, 'viewAllComplaint'])->name('viewAllComplaint');
-        Route::get('/edit-complaint/{id}', [ComplaintController::class, 'fkeditComplaint'])->name('editComplaint');
-        Route::put('/update-complaint/{id}', [ComplaintController::class, 'fkupdateComplaint'])->name('updateComplaint');
+       
     });
 });
 
