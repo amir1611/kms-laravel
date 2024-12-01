@@ -1,4 +1,4 @@
-@extends('layouts.adminNav')
+@extends('layouts.pupukAdminNav')
 
 @section('main-content')
     <!--ADMIN PROFILE -->
@@ -14,8 +14,8 @@
             </div>
         @endif
 
-        <!-- Route to admin.store-staff to create new staff -->
-        <form method="POST" action="{{ route('admin.store-staff') }}" style=" margin-left: 77px; padding-top: 51px ">
+        <!-- Route to pupuk.store-staff to create new staff -->
+        <form method="POST" action="{{ route('pupuk.store-staff') }}" style=" margin-left: 77px; padding-top: 51px ">
             @csrf
             <div class="row mb-3">
                 <label for="ic" class="col-md-4 col-form-label text-md-end">{{ __('IC Number') }}</label>

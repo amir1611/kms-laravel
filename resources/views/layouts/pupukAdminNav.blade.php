@@ -56,7 +56,13 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('pupuk.home') }}">
                     <i class="fas fa-fw fa-user"></i>
-                    <span>{{ __('Profile') }}</span></a>
+                    <span>{{ __('My Profile') }}</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('pupuk.register-staff') }}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>{{ __('Manage Staff') }}</span></a>
             </li>
 
             <li class="nav-item">

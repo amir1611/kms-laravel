@@ -41,7 +41,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.register-staff') }}">
+            <a class="nav-link" href="{{ route('pupuk.register-staff') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>{{ __('Register Staff') }}</span></a>
         </li>

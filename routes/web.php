@@ -31,6 +31,9 @@ Route::prefix('pupuk-admin')->name('pupuk.')->group(function () {
         Route::get('/profile', [HomeController::class, 'indexPupukAdmin'])->name('home');
         Route::post('/profile', [HomeController::class, 'updatePassword'])->name('update-password-staff');
         Route::get('/', [HomeController::class, 'indexPupukAdmin'])->name('home');
+       
+                Route::get('/register-staff', [UserController::class, 'registerStaff'])->name('register-staff');
+                Route::post('/store-staff', [UserController::class, 'storeStaff'])->name('store-staff');
 
         //manageKiosk
         Route::get('/kiosk-application', [KioskController::class, 'viewKioskApplication'])->name('viewKioskApplication');
@@ -109,32 +112,9 @@ Route::prefix('user')->name('user.')->group(function () {
 });
 
 
-//ALL ROUTES FOR ADMIN
-Route::prefix('admin')->name('admin.')->group(function () {
-    Route::group(['middleware' => ['auth', 'verified', 'user-role:admin']], function () {
-
-        //manageAccount
-        Route::get('/', [HomeController::class, 'indexAdmin'])->name('home');
-        Route::get('/register-staff', [UserController::class, 'registerStaff'])->name('register-staff');
-        Route::post('/store-staff', [UserController::class, 'storeStaff'])->name('store-staff');
-
-       
-    });
-});
 
 
-//ALL ROUTES FOR FK TECHNICAL
-Route::prefix('fk-technical')->name('technical.')->group(function () {
-    Route::group(['middleware' => ['auth', 'verified', 'user-role:fk-technical']], function () {
 
-        //manageAccount
-        Route::get('/', [HomeController::class, 'indexFKTechnical'])->name('home');
-        Route::get('/register-staff', [UserController::class, 'registerStaff'])->name('register-staff');
-        Route::post('/store-staff', [UserController::class, 'storeStaff'])->name('store-staff');
-
-       
-    });
-});
 
 
 //ALL ROUTES FOR FK BURSARY
