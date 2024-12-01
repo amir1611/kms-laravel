@@ -54,52 +54,7 @@
                 <span>{{ __('Complaint') }}</span></a>
         </li>
 
-        <!-- Nav Item - Profile -->
-        {{-- <li class="nav-item ">
-            <a class="nav-link" href="{{route('technical.prepCourse.applicantList')}}">
-                <i class="fas fa-fw fa-list"></i>
-                <span>{{ __('List of Applicant') }}</span>
-            </a>
-        </li>
-
-        <li class="nav-item ">
-            <a class="nav-link" href="{{route('technical.consultation.manage')}}">
-                <i class="fas fa-fw fa-ticket"></i>
-                <span>{{ __('Consultation') }}</span>
-            </a>
-        </li>
-
-        <li class="nav-item ">
-            <a class="nav-link" href="{{route('technical.consultant.manage')}}">
-                <i class="fas fa-fw fa-address-card"></i>
-                <span>Consultant</span>
-            </a>
-        </li>
-
-        <li class="nav-item ">
-            <a class="nav-link" href="{{route('technical.register.manage')}}">
-                <i class="fas fa-fw fa-code-fork"></i>
-                <span>Marriage Registration</span>
-            </a>
-            </li>
-
-            <li class="nav-item ">
-            <a class="nav-link" href="{{route('technical.card.manage')}}">
-                <i class="fas fa-fw fa-cloud"></i>
-                <span>Marriage Card</span>
-
-            <a class="nav-link" href="{{route('technical.incentive.view')}}">
-                <i class="fas fa-fw fa-credit-card"></i>
-                <span>{{ __('Incentive') }}</span></a>
-        </li> --}}
-
-        <!-- Nav Item - About -->
-        {{-- <li class="nav-item">
-            <a class="nav-link" href="#">
-                <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('About') }}</span>
-            </a>
-        </li> --}}
+      
 
         <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal"

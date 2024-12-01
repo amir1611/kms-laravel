@@ -115,7 +115,7 @@ class KioskController extends Controller
                 'business_information' => 'required|string',
                 'business_operating_hour' => 'required|string',
                 'business_start_date' => 'required|date',
-                'ssm_pdf' => 'required|mimes:pdf|max:2048',  // Assuming a maximum file size of 2 MB for PDF files
+                'ssm_pdf' => 'required|mimes:pdf|max:2048',  
                 'business_proposal_pdf' => 'required|mimes:pdf|max:2048',
             ]);
 
