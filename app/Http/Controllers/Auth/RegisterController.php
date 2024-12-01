@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Applicant;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -69,19 +70,29 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $user = User::create([
-            'ic' => $data['ic'],
             'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+            'ic' => $data['ic'],
             'gender' => $data['gender'],
             'contact' => $data['contact'],
-            'email' => $data['email'],
-            'email_verified_at' => now(),
-            'password' => Hash::make($data['password']),
         ]);
+        
+        $user->forceFill([
+            'email_verified_at' => now()
+        ])->save();
+        
+        return $user;
+    }
 
-        // Link the user to the applicant table
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
 
-        if($user){
-            return view('auth.loginn');
-        }
+        $user = $this->create($request->all());
+
+        $this->guard()->login($user);
+
+        return redirect($this->redirectPath());
     }
 }
