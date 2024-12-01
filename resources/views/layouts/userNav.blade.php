@@ -54,7 +54,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('user.home') }}">
                     <i class="fas fa-fw fa-user"></i>
-                    <span>{{ __('Profile') }}</span></a>
+                    <span>{{ __('My Profile') }}</span></a>
             </li>
 
             <li class="nav-item">

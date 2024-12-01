@@ -68,13 +68,14 @@
                 <div id="manageUserCollapse" class="collapse" aria-labelledby="headingTwo"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('pupuk.register-staff') }}">
-                            <i class="fas fa-fw fa-user-plus"></i>
+                        <h6 class="collapse-header">User Management:</h6>
+                        <a class="collapse-item d-flex align-items-center" href="{{ route('pupuk.register-staff') }}">
+                            <i class="fas fa-fw fa-user-plus mr-2"></i>
                             <span>{{ __('Register User') }}</span>
                         </a>
-                        <a class="collapse-item" href="{{ route('pupuk.view-users') }}">
-                            <i class="fas fa-fw fa-list"></i>
-                            <span>{{ __('View Users') }}</span>
+                        <a class="collapse-item d-flex align-items-center" href="{{ route('pupuk.view-users') }}">
+                            <i class="fas fa-fw fa-table mr-2"></i>
+                            <span>{{ __('User List') }}</span>
                         </a>
                     </div>
                 </div>
