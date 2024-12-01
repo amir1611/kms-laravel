@@ -102,13 +102,7 @@
                 </div>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('pupuk.viewAllPayment') }}">
-                    <i class="bi bi-cash-stack"></i>
-                    <span>{{ __('Manage Payment') }}</span>
-                </a>
-            </li>
-
+      
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('pupuk.reportList') }}">
                     <i class="bi bi-file-earmark-bar-graph-fill"></i>

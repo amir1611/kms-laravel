@@ -7,7 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KioskController;
-use App\Http\Controllers\PaymentController;
+
 
 
 
@@ -43,14 +43,7 @@ Route::prefix('pupuk-admin')->name('pupuk.')->group(function () {
         Route::get('/pupuk/deleteKiosk/{id}', [KioskController::class, 'deleteKiosk'])->name('deleteKiosk');
         Route::get('/pupuk/updateApplicationStatus/{id}', [KioskController::class, 'updateApplicationStatus'])->name('updateApplicationStatus');
    
-                  //managePayment
-                  Route::get('/viewPaymentList', [PaymentController::class, 'viewAllPayment'])->name('viewAllPayment');
-                  Route::get('/view-payment/{id}', [PaymentController::class, 'viewPayment'])->name('viewPayment');
-                  Route::get('/payment-approval/{id}', [PaymentController::class, 'paymentApproval'])->name('paymentApproval');
-                  Route::get('/view-payment/{id}', [PaymentController::class, 'viewPayment'])->name('viewPayment');
-                  Route::post('/process-payment/{id}', [PaymentController::class, 'processPayment'])->name('processPayment');
-
-
+             
                 //manageReport
                 Route::get('/viewMonthlyReportList', [ReportController::class, 'viewAllReport'])->name('reportList');
                 Route::get('/uploadMonthlyReport', [ReportController::class, 'showKioskListById'])->name('uploadReport');
@@ -82,18 +75,6 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::post('/applyKiosk', [KioskController::class, 'applyKiosk'])->name('submitApplyKiosk');
         Route::get('/applyForReject', [KioskController::class, 'rejectApplication'])->name('rejectApplication');
         Route::put('/update-kiosk/{id}', [KioskController::class, 'updateKiosk'])->name('updateKiosk');
-
-        // managePayment
-        Route::get('/viewPaymentHistory', [PaymentController::class, 'viewPaymentHistory'])->name('viewPaymentHistory');
-        Route::get('/addPayment', [PaymentController::class, 'showAddPaymentForm'])->name('addPayment');
-        Route::post('/addPayment', [PaymentController::class, 'addPayment'])->name('submitAddPayment');
-        Route::get('/viewPaymentDetails/{id}', [PaymentController::class, 'viewPaymentDetails']);
-        Route::get('/filter/{filterData}', [PaymentController::class, 'filterTable'])->name('filterSec');
-        Route::get('/search', [PaymentController::class, 'searchPayment'])->name('searchPayment');
-        Route::get('/deletePayment/{id}', [PaymentController::class, 'deletePayment'])->name('deletePayment');
-        Route::get('edit-payment/{id}', [PaymentController::class, 'viewEditPayment'])->name('viewEditPayment');
-        Route::put('/user/edit-payment/{id}', [PaymentController::class, 'editPayment'])->name('editPayment');
-
 
         //manageReport
         Route::get('/viewMonthlyReportList', [ReportController::class, 'viewAllKioskParticipantReport'])->name('reportList');
