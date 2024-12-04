@@ -75,7 +75,7 @@
                 .then(response => {
                     if (response.ok) {
                         alert('User deleted successfully.');
-                        location.reload(); // Reload the page to see the changes
+                        location.reload(); 
                     } else {
                         alert('Failed to delete user.');
                     }

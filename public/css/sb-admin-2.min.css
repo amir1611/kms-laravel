@@ -2430,7 +2430,7 @@ textarea.form-control {
 
 .btn:not(:disabled):not(.disabled) {
     cursor: pointer;
-    border: 1px solid blueviolet;
+    
 }
 
 a.btn.disabled,fieldset:disabled a.btn {
