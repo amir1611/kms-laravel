@@ -33,7 +33,7 @@
                                 <td>{{ $user->created_at->format('d/m/Y') }}</td>
                                 <td>
                                     <div class="btn-group" role="group">
-                                        <a href="#" class="btn btn-sm btn-primary me-2">
+                                        <a href="{{ route('pupuk.user.edit', $user->id) }}" class="btn btn-sm btn-primary me-2">
                                             <i class="fas fa-edit"></i> Edit
                                         </a>
                                         <button type="button" class="btn btn-sm btn-danger" 
@@ -62,5 +62,29 @@
     <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.bootstrap5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-    <script
+    <script>
+        function deleteUser(userId) {
+            if (confirm('Are you sure you want to delete this user?')) {
+                fetch(`/pupuk-admin/user/${userId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('User deleted successfully.');
+                        location.reload(); // Reload the page to see the changes
+                    } else {
+                        alert('Failed to delete user.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while deleting the user.');
+                });
+            }
+        }
+    </script>
 @endsection

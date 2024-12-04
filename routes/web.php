@@ -33,6 +33,9 @@ Route::prefix('pupuk-admin')->name('pupuk.')->group(function () {
         Route::get('/', [HomeController::class, 'indexPupukAdmin'])->name('home');
         Route::get('/register-staff', [UserController::class, 'registerStaff'])->name('register-staff');
         Route::post('/store-staff', [UserController::class, 'storeStaff'])->name('store-staff');
+        Route::get('/view-users', [UserController::class, 'viewUsers'])->name('view-users');
+        Route::get('/user/edit/{id}', [UserController::class, 'edit'])->name('user.edit');
+        Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
 
         //manageKiosk
         Route::get('/kiosk-application', [KioskController::class, 'viewKioskApplication'])->name('viewKioskApplication');
@@ -53,8 +56,7 @@ Route::prefix('pupuk-admin')->name('pupuk.')->group(function () {
                 Route::post('/updateMonthReport/{id}', [ReportController::class, 'editKioskParticipantReport'])->name('editReport');
                 Route::get('/filter/{filterData}', [ReportController::class, 'filterTable'])->name('filterSec');
                 Route::get('/search', [ReportController::class, 'searchReport'])->name('searchReport');
-        
-        Route::get('/view-users', [UserController::class, 'viewUsers'])->name('view-users');
+   
     });
 });
 

@@ -91,4 +91,18 @@ class UserController extends Controller
         $users = User::all();
         return view('manageProfile.viewusers', compact('users'));
     }
+
+    public function edit($id)
+    {
+        $user = User::findOrFail($id);
+        return view('manageProfile.editprofile', compact('user'));
+    }
+
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return response()->json(['success' => 'User deleted successfully.']);
+    }
 }
