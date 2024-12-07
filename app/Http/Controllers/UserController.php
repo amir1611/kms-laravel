@@ -65,7 +65,8 @@ class UserController extends Controller
             'email_verified_at' => now()
         ]);
 
-        return redirect()->back()->with('success', 'User registered successfully.');
+        // return redirect()->back()->with('success', 'User registered successfully.');
+        return response()->json(['success' => 'Staff created successfully.', 'user' => $user], 201);
     }
 
     private function generateUniqueStaffId()
@@ -89,7 +90,8 @@ class UserController extends Controller
     public function viewUsers()
     {
         $users = User::all();
-        return view('manageProfile.viewusers', compact('users'));
+        // return view('manageProfile.viewusers', compact('users'));
+        return response()->json($users); // Return users as JSON
     }
 
     public function edit($id)
