@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +21,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Store Staff
-Route::post('/staff', [UserController::class, 'storeStaff'])->middleware('auth:sanctum');
+Route::post('/staff', [UserController::class, 'storeStaff']);
 
 // View Users
-Route::get('/users', [UserController::class, 'index'])->middleware('auth:sanctum');
+Route::get('/users', [UserController::class, 'viewUsers']);
 
 // Delete User
-Route::delete('/users/{id}', [UserController::class, 'destroy'])->middleware('auth:sanctum');
+Route::delete('/users/{id}', [UserController::class, 'destroy']);
