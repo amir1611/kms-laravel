@@ -61,12 +61,12 @@ class UserController extends Controller
             'gender' => $request->gender,
             'contact' => $request->contact,
             'role' => $role,
-            'staff_id' => $staffId,
+           
             'email_verified_at' => now()
         ]);
 
         // return redirect()->back()->with('success', 'User registered successfully.');
-        return response()->json(['success' => 'Staff created successfully.', 'user' => $user], 201);
+        return response()->json(['success' => 'User created successfully.', 'user' => $user], 201);
     }
 
     private function generateUniqueStaffId()
