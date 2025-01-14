@@ -16,9 +16,11 @@ class UserRole
 	 */
 	public function handle(Request $request, Closure $next, $role): Response
 	{
+		// Check if the user is authenticated and has the required role
 		if (Auth::check() && Auth::user()->role == $role) {
 			return $next($request);
 		} else {
+			// If the user is not authenticated or does not have the required role, abort with a 403 error
 			abort(403, 'You are disallowed to access this page.');
 		}
 	}

@@ -17,6 +17,7 @@ class RedirectIfAuthenticated
 	 */
 	public function handle(Request $request, Closure $next, string ...$guards): Response
 	{
+		// Check if the user is authenticated and redirect based on their role
 		$guards = empty($guards) ? [null] : $guards;
 
 		foreach ($guards as $guard) {

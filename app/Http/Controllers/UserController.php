@@ -74,14 +74,14 @@ class UserController extends Controller
         $prefix = 'pupukAdmin';
         $existingIds = User::where('staff_id', 'LIKE', $prefix . '%')->pluck('staff_id')->toArray();
 
-        // Start with the first ID
+
         $newIdNumber = 1;
 
-        // Generate a new ID until a unique one is found
+       
         while (true) {
             $newStaffId = $prefix . str_pad($newIdNumber, 3, '0', STR_PAD_LEFT);
             if (!in_array($newStaffId, $existingIds)) {
-                return $newStaffId; // Return the unique ID
+                return $newStaffId; 
             }
             $newIdNumber++;
         }
@@ -91,7 +91,7 @@ class UserController extends Controller
     {
         $users = User::all();
         // return view('manageProfile.viewusers', compact('users'));
-        return response()->json($users); // Return users as JSON
+        return response()->json($users);
     }
 
     public function edit($id)
@@ -104,6 +104,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
+
 
         return response()->json(['success' => 'User deleted successfully.']);
     }
